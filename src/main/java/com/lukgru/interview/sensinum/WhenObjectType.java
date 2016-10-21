@@ -5,8 +5,8 @@ package com.lukgru.interview.sensinum;
  */
 public class WhenObjectType {
 
-    public static Object whenObjectType(Object o) {
-        return null;
+    public static Is whenObjectType(Object object) {
+        return new RegularIs(object);
     }
 
 }
