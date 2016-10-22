@@ -3,10 +3,10 @@ package com.lukgru.interview.sensinum;
 /**
  * Created by Łukasz on 2016-10-22.
  */
-public interface Is<O, R> {
+public interface Is {
 
-    ThenReturn is(Class<?> clazz);
+    <T> ThenReturn is(Class<T> clazz);
 
-    R execute();
+    <R> R execute();
 
 }

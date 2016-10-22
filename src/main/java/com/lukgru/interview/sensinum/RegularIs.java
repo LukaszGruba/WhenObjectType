@@ -12,17 +12,17 @@ class RegularIs implements Is {
     }
 
     @Override
-    public ThenReturn is(Class<?> clazz) {
+    public <T> ThenReturn is(Class<T> clazz) {
         if (clazz.isAssignableFrom(object.getClass())) {
-            return new FinalThenReturn(object);
+            return new FinalThenReturn<T>((T) object);
         }
         else {
-            return new RegularThenReturn(object);
+            return new RegularThenReturn<T>(object);
         }
     }
 
     @Override
-    public Object execute() {
+    public <R> R execute() {
         throw new UnsupportedOperationException("Object's type not matched.");
     }
 }
