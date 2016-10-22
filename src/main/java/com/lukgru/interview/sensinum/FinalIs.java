@@ -5,12 +5,12 @@ import java.util.function.Function;
 /**
  * Created by Łukasz on 2016-10-22.
  */
-class FinalIs implements Is {
+class FinalIs<O, R> implements Is<O, R> {
 
-    private final Object object;
-    private final Function<Object, Object> function;
+    private final O object;
+    private final Function<O, R> function;
 
-    public FinalIs(Object object, Function<Object, Object> function) {
+    public FinalIs(O object, Function<O, R> function) {
         this.object = object;
         this.function = function;
     }
@@ -21,7 +21,7 @@ class FinalIs implements Is {
     }
 
     @Override
-    public Object execute() {
+    public R execute() {
         return function.apply(object);
     }
 }
