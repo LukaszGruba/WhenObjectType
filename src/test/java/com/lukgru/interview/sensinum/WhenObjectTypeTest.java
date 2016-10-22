@@ -91,13 +91,14 @@ public class WhenObjectTypeTest {
     @Test(expected = NullPointerException.class)
     public void shouldThrowNPEForNullFunction() {
         //given
-        Object object = new Object();
+        String object = "test";
         Function<Object, Object> function = null;
 
         //when
         int result = (int) whenObjectType(object)
-                .is(String.class).thenReturn(d -> 0)
-                .is(Integer.class).thenReturn(d -> function)
+                .is(Integer.class).thenReturn(d -> 0)
+                .is(String.class).thenReturn(d -> function)
+                .is(Object.class).thenReturn(d -> 0)
                 .execute();
 
         //then throw exception
