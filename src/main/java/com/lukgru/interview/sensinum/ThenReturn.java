@@ -5,8 +5,8 @@ import java.util.function.Function;
 /**
  * Created by Łukasz on 2016-10-22.
  */
-public interface ThenReturn {
+public interface ThenReturn<T> {
 
-    Is thenReturn(Function<Object, Object> function);
+    Is thenReturn(Function<T, Object> function);
 
 }

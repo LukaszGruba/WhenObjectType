@@ -5,8 +5,8 @@ package com.lukgru.interview.sensinum;
  */
 public interface Is {
 
-    ThenReturn is(Class<?> clazz);
+    <T> ThenReturn is(Class<T> clazz);
 
-    Object execute();
+    <R> R execute();
 
 }

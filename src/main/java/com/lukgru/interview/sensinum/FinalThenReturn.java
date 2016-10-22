@@ -5,22 +5,28 @@ import java.util.function.Function;
 /**
  * Created by Łukasz on 2016-10-22.
  */
-public class FinalThenReturn implements ThenReturn {
+public class FinalThenReturn<T> implements ThenReturn<T>, Is {
 
-    private final Object object;
-    private Function<Object, Object> function;
+    private final T object;
+    private Function<T, Object> function;
 
-    public FinalThenReturn(Object object) {
+    public FinalThenReturn(T object) {
         this.object = object;
-    }
-
-    public FinalThenReturn(Object object, Function<Object, Object> function) {
-        this.object = object;
-        this.function = function;
     }
 
     @Override
-    public Is thenReturn(Function<Object, Object> function) {
-        return new FinalIs(object, this.function != null ? this.function : function);
+    public <T> ThenReturn is(Class<T> clazz) {
+        return this;
+    }
+
+    @Override
+    public Is thenReturn(Function<T, Object> function) {
+        this.function = this.function == null ? function : this.function;
+        return this;
+    }
+
+    @Override
+    public <R> R execute() {
+        return (R) function.apply(object);
     }
 }

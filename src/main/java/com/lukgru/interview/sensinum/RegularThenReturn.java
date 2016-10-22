@@ -5,7 +5,7 @@ import java.util.function.Function;
 /**
  * Created by Łukasz on 2016-10-22.
  */
-class RegularThenReturn implements ThenReturn {
+class RegularThenReturn<T> implements ThenReturn<T> {
 
     private Object object;
 
@@ -14,7 +14,7 @@ class RegularThenReturn implements ThenReturn {
     }
 
     @Override
-    public Is thenReturn(Function<Object, Object> function) {
+    public Is thenReturn(Function<T, Object> function) {
         return new RegularIs(object);
     }
 }

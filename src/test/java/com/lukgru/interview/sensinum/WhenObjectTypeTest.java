@@ -21,7 +21,7 @@ public class WhenObjectTypeTest {
         String object = "test";
 
         //when
-        int result = (int) whenObjectType(object)
+        int result = whenObjectType(object)
                 .is(String.class).thenReturn(d -> CORRECT_MATCH)
                 .is(Integer.class).thenReturn(d -> WRONG_MATCH)
                 .execute();
@@ -36,7 +36,7 @@ public class WhenObjectTypeTest {
         String object = "test";
 
         //when
-        int result = (int) whenObjectType(object)
+        int result = whenObjectType(object)
                 .is(Integer.class).thenReturn(d -> WRONG_MATCH)
                 .is(String.class).thenReturn(d -> CORRECT_MATCH)
                 .execute();
@@ -51,7 +51,7 @@ public class WhenObjectTypeTest {
         Object object = new Object();
 
         //when
-        int result = (int) whenObjectType(object)
+        int result = whenObjectType(object)
                 .is(String.class).thenReturn(d -> CORRECT_MATCH)
                 .is(Integer.class).thenReturn(d -> WRONG_MATCH)
                 .execute();
@@ -65,7 +65,7 @@ public class WhenObjectTypeTest {
         Object object = null;
 
         //when
-        int result = (int) whenObjectType(object)
+        int result = whenObjectType(object)
                 .is(String.class).thenReturn(d -> 0)
                 .is(Integer.class).thenReturn(d -> 0)
                 .execute();
@@ -80,7 +80,7 @@ public class WhenObjectTypeTest {
         Class<?> type = null;
 
         //when
-        int result = (int) whenObjectType(object)
+        int result = whenObjectType(object)
                 .is(String.class).thenReturn(d -> 0)
                 .is(type).thenReturn(d -> 0)
                 .execute();
@@ -95,7 +95,7 @@ public class WhenObjectTypeTest {
         Function<Object, Object> function = null;
 
         //when
-        int result = (int) whenObjectType(object)
+        int result = whenObjectType(object)
                 .is(Integer.class).thenReturn(d -> 0)
                 .is(String.class).thenReturn(d -> function)
                 .is(Object.class).thenReturn(d -> 0)
